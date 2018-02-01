@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+            <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    </head>
+        <style>
+            .table{
+                border:1px solid;
+                border-color:black;
+            }
+
+        </style>
+
+    <body ng-app="myapp"  ng-controller="vctrl">
+    <h1>{{ result }}</h1>
+    
+    <h1> {{ information }} </h1>
+    
+        <hr>
+    <table>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Qualification</th>
+        </tr>
+        <tr ng-repeat="x in cat">
+            <td> {{x.firstname}} </td>
+            <td> {{x.lastname}} </td>
+            <td> {{x.qualification}} </td>
+        </tr>
+
+    </table>
+    
+    <script>
+        var a = angular.module("myapp",[]);
+
+        a.factory("display",function(){
+            var age = prompt("what is your age ?");
+            var  qualification = prompt("what is your qualification ?");
+            return age + " " + qualification;
+        });
+
+        a.value("copylink","rohit jaspal");
+        
+        a.value ("biodata",[
+    {
+        firstname:"rohit",
+        lastname :"jaspal",
+        qualification:"M.tech"
+    },
+    
+    {
+        firstname:"ankit",
+        lastname:"kumar",
+        qualification:"b.tech"
+
+    }
+]);
+        
+        a.controller("vctrl",function($scope,copylink,display,biodata)
+        {
+            $scope.result = copylink;
+            $scope.information = display;
+            $scope.cat = biodata;
+
+        }); 
+
+    </script>
+    </body>
+    </html>

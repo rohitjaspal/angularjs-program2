@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>
+        angular1 lesson1
+        </title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+            </script>
+        </head>
+    <body ng-app = "myapp" ng-controller="personctrl">
+            <ul ng-repeat="x in course">
+                <li>{{x}}</li>
+
+
+            </ul>
+     <hr>
+     <ul ng-repeat="x in person">
+         <li>{{x.firstname}} &nbsp;&nbsp;{{x.lastname}} &nbsp; &nbsp;{{x.mobile}}</li>
+           </ul>
+           
+           
+           <hr>
+           
+           <select ng-model="sellInput" ng-options="x.firstname for x in person"></select>
+
+           <h1>{{sellInput.firstname}}</h1>
+           <h1>{{sellInput.lastname}}</h1>
+           <h1>{{sellInput.mobile}}</h1>
+        <script>
+            angular.module("myapp",[])
+            .controller("personctrl",function($scope)
+            {   
+                $scope.person = 
+                [
+                    {   
+                        "firstname":"sudeep",
+                        "lastname":"kumar",
+                        "mobile":"9887845784"
+
+                    },
+                    {   
+                        "firstname":"rajesh",
+                        "lastname":"avasthi",
+                        "mobile":"9887845784"
+
+                    },
+                    {   
+                        "firstname":"rohit",
+                        "lastname":"jaspal",
+                        "mobile":"988784578984"
+
+                    },
+                    
+                ];
+
+
+            });
+            </script>
+            </body>
+            </html>
